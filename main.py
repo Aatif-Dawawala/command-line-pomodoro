@@ -62,7 +62,7 @@ def getSessionCount():
         print("Please enter a positive number!")
         getSessionCount()
 
-    print(f"Thanks! There will be {sessionCount} sessions.\n")
+    print(f"Thanks! There will be {sessionCount} session(s).\n")
 
 def isBreakLonger():
     confirmation = input("You have set the break time to be longer than the study time. Are you sure? (Y/N): ")
