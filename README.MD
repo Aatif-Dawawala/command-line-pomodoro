@@ -19,7 +19,7 @@ Stack
 
 ## Local Setup
 
-### `Clone the Repo
+### Clone the Repo
 ```
 bash git clone https://github.com/aatif-dawawala/command-line-pomodoro
 cd command-line-pomodoro
