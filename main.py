@@ -1,88 +1,42 @@
+#!/usr/bin/env/python3
+
 import os
 import math
 import subprocess
 import time
 from pyfiglet import Figlet
+import argparse
 
-print("Welcome to the Command Line Pomodoro Timer App!\n")
+parser = argparse.ArgumentParser(
+    prog="Command-Line Pomodoro Timer",
+    description="A simple application to start a pomodoro timer in the command line"
+)
 
-studyTime = ""
-breakTime = ""
-sessionCount = ""
+parser.add_argument('-s', '--study', help="the amount of study time in minutes")
+parser.add_argument('-r', '--rest', help="the amount of rest time in minutes")
+parser.add_argument('-ss', '--sessions', help="the number of sessions")
 
-def getStudyTime():
-    global studyTime
-    studyTime = input("Enter the amount of time you would like to study for (in minutes): ")
+args = parser.parse_args()
 
-    try:
-        int(studyTime)
-        studyTime = int(studyTime)
-    except ValueError:
-        print("Please enter an whole number value!")
-        getStudyTime()
-        return;
+studyTime = args.study
+breakTime = args.rest
+sessionCount = args.sessions
 
-    if studyTime <= 0:
-        print("Please enter a positive number!")
-        getStudyTime()
+if args.study is None or args.rest is None or args.sessions is None:
+    print("You are missing 1 or more arguments. Use the -h flag for help")
+    quit()
 
-    print(f"Thanks! Study time recorded to be {studyTime} minutes.\n")
+try:
+    studyTime = int(studyTime)
+    breakTime = int(breakTime)
+    sessionCount = int(sessionCount)
+except:
+    print("Make sure all your arguments are whole numbers!")
+    quit()
 
-def getBreakTime():
-    global breakTime
-    breakTime = input("Enter the amount of time you would like to rest for (in minutes): ")
-
-    try:
-        int(breakTime)
-        breakTime = int(breakTime)
-    except ValueError:
-        print("Please enter an whole number value!")
-        getBreakTime()
-        return;
-
-    if breakTime <= 0:
-        print("Please enter a positive number!")
-        getBreakTime()
-
-    print(f"Thanks! Break time recorded to be {breakTime} minutes.\n")
-
-def getSessionCount():
-    global sessionCount
-    sessionCount = input("Enter the number of study sessions you would like: ")
-
-    try:
-        int(sessionCount)
-        sessionCount = int(sessionCount)
-    except ValueError:
-        print("Please enter an whole number value!")
-        getSessionCount()
-        return;
-
-    if sessionCount <= 0:
-        print("Please enter a positive number!")
-        getSessionCount()
-
-    print(f"Thanks! There will be {sessionCount} session(s).\n")
-
-def isBreakLonger():
-    confirmation = input("You have set the break time to be longer than the study time. Are you sure? (Y/N): ")
-    print("\n")
-
-    if confirmation == "Y":
-        print("Thank you for confirming!")
-    elif confirmation == "N":
-        getStudyTime()
-        getBreakTime() 
-    else:
-        print("Please either answer Y or N to confirm.") 
-        isBreakLonger()
-
-getStudyTime()
-getBreakTime()
-getSessionCount()
-
-if breakTime > studyTime:
-    isBreakLonger()
+if studyTime <= 0 or breakTime <= 0 or sessionCount <= 0:
+    print("Make sure all your arguments are positive numbers!")
+    quit()
 
 
 if studyTime <= 60: 
