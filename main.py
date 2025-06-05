@@ -1,11 +1,11 @@
-#!/usr/bin/env/python3
-
 import os
 import math
 import subprocess
 import time
 from pyfiglet import Figlet
 import argparse
+import sqlite3
+from datetime import date
 
 parser = argparse.ArgumentParser(
     prog="Command-Line Pomodoro Timer",
@@ -15,12 +15,14 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-s', '--study', help="the amount of study time in minutes")
 parser.add_argument('-r', '--rest', help="the amount of rest time in minutes")
 parser.add_argument('-ss', '--sessions', help="the number of sessions")
+parser.add_argument('-rr', '--record', action="store_true", help="enables sesssion recording")
 
 args = parser.parse_args()
 
 studyTime = args.study
 breakTime = args.rest
 sessionCount = args.sessions
+recordEnable = args.record
 
 if args.study is None or args.rest is None or args.sessions is None:
     print("You are missing 1 or more arguments. Use the -h flag for help")
@@ -86,3 +88,22 @@ for i in range(sessionCount):
 
 f = Figlet(font='slant')
 print(f.renderText('You did it!'))
+
+if recordEnable:
+    today = date.today()
+    formatted_date = today.strftime("%m/%d/%y")
+
+    dbConn = sqlite3.connect("studylog.db")
+    cursor = dbConn.cursor()
+    cursor.execute(f'''
+            CREATE TABLE IF NOT EXISTS sessions (
+                    date TEXT,
+                    timestudied INT
+            )
+    ''')
+    cursor.execute(f'''
+            INSERT INTO sessions 
+            VALUES ('{formatted_date}', {studyTime});
+    ''')
+    dbConn.commit()
+
