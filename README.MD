@@ -1,4 +1,4 @@
-# Commad Line Pomodoro Timer
+# Command Line Pomodoro Timer
 
 A simple command line application that creates a **pomodoro timer** through user inputted timing. 
 
