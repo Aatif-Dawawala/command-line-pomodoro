@@ -24,12 +24,12 @@ Stack
 Flags: [-h] [-s STUDY] [-r REST] [-ss SESSIONS] [-rr] [-g]
 
 -h, --help            show this help message and exit
--s, --study STUDY     the amount of study time in minutes
--r, --rest REST       the amount of rest time in minutes
+-s, --study STUDY     the amount of study time in minutes (required)
+-r, --rest REST       the amount of rest time in minutes (required)
 -ss, --sessions SESSIONS
-                    the number of sessions
+                    the number of sessions (required)
 -l, --log             logs the session once completed
--g, --graph           shows a graph of date and study time, either immediately if passed with no other flags, or after completion
+-g, --graph           shows a graph of date and study time, must be passed alone
 ```
 
 ---
