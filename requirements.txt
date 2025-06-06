@@ -1,6 +1,7 @@
-os
-math
-subprocess
-time
+
 pyfiglet
 timer
+PyQt5
+matplotlib
+numpy
+
