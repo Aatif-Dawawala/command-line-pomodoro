@@ -8,7 +8,7 @@ A simple command line application that creates a **pomodoro timer** through user
 
 ![GraphScreenshot](./dateandstudytimegraph.png)
 
-Stack:
+**Stack**:
 - Python
 - Timer (python package to display timer in command line)
 - Pyfiglet
