@@ -44,8 +44,8 @@ Flags: [-h] [-s STUDY] [-r REST] [-ss SESSIONS] [-rr] [-g]
 ## Local Setup
 
 ### Clone the Repo
-```
-bash git clone https://github.com/aatif-dawawala/command-line-pomodoro
+```bash
+git clone https://github.com/aatif-dawawala/command-line-pomodoro
 cd command-line-pomodoro
 ```
 
