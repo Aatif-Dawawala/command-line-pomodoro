@@ -2,13 +2,13 @@
 
 A simple command line application that creates a **pomodoro timer** through user inputted timing. 
 
+![MainScreenshot](./screenshot.png)
+
 Stack
 - Python
 - Timer (python package to display timer in command line)
 - Pyfiglet
 - SQLite 
-
-![MainScreenshot](./screenshot.png)
 
 ---
 
