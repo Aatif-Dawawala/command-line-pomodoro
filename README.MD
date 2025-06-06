@@ -13,6 +13,7 @@ Stack
 - Timer (python package to display timer in command line)
 - Pyfiglet
 - SQLite 
+- Matplotlib
 
 ---
 
