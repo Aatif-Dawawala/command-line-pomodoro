@@ -29,7 +29,7 @@ Flags: [-h] [-s STUDY] [-r REST] [-ss SESSIONS] [-rr] [-g]
 -ss, --sessions SESSIONS
                     the number of sessions
 -l, --log             logs the session once completed
--g, --graph           shows a graph of date and study time, either immediately if passed with no other arguments, or after the sessions have been completed
+-g, --graph           shows a graph of date and study time, either immediately if passed with no other flags, or after completion
 ```
 
 ---
