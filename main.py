@@ -53,7 +53,13 @@ if graphEnable and (studyTime is None and breakTime is None and sessionCount is 
 
     fig = plt.figure()
     fig, ax = plt.subplots()
-    ax.plot(xAxis, yAxis)
+    xAxis = xAxis[-1:-10:-1]
+    yAxis = yAxis[-1:-10:-1]
+    ax.plot(xAxis[::-1], yAxis[::-1])
+
+    plt.title("Date and Study Time")
+    plt.xlabel("Date")
+    plt.ylabel("Time Studied (min)")
 
     plt.show()
 
