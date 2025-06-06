@@ -8,6 +8,8 @@ Stack
 - Pyfiglet
 - SQLite 
 
+![MainScreenshot](./screenshot.png)
+
 ---
 
 ## Functionality
